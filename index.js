@@ -79,6 +79,13 @@ client.connect(err => {
         })
     })
 
+    app.get('/products/:key', (req, res) => {
+        productsCollection.find({key: req.params.key})
+        .toArray( (err, documents) => {
+            res.send(documents[0]);
+        })
+    })
+
 
    
 
